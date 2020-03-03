@@ -90,10 +90,23 @@
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("// webpack默认打包目录是src下的index.js\ndocument.write(\"hello  webpack\");\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _pic_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pic.png */ \"./src/pic.png\");\n//YuyaoYan\n//Yyiao8787887\n// webpack默认打包目录是src下的index.js\n\n\n\nconsole.log(\"logo\",_pic_png__WEBPACK_IMPORTED_MODULE_0__[\"default\"])\nvar img = new Image();\nimg.src = _pic_png__WEBPACK_IMPORTED_MODULE_0__[\"default\"];\nimg.classList.add(\"logo\");\nconsole.log(\"img\",img)\n\nvar root = document.getElementById(\"root\");\nroot.append(img);\n\n\ndocument.write(\"hello  webpack\");\nconsole.log(\"hello\");\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/pic.png":
+/*!*********************!*\
+  !*** ./src/pic.png ***!
+  \*********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"images/pic.png\");\n\n//# sourceURL=webpack:///./src/pic.png?");
 
 /***/ })
 
