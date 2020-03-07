@@ -3,7 +3,8 @@
 // webpack默认打包目录是src下的index.js
 
 import logo from "./pic.png";
-
+import "./index.css";
+import "./index.less"
 console.log("logo",logo)
 var img = new Image();
 img.src = logo;
@@ -14,5 +15,5 @@ var root = document.getElementById("root");
 root.append(img);
 
 
-document.write("hello  webpack");
+document.write("hello  webpack@@，今天的心情美美哒");
 console.log("hello");
