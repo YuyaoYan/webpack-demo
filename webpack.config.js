@@ -16,6 +16,18 @@ module.exports = {
     //hash
   },
   mode: "development", //打包环境
+  devtool: "eval",
+  devServer: {
+    contentBase: "./dist", //服务器静态资源目录
+    port: 8081,
+    open: true, //服务启动后，会把服务地址放在dist目录下，找到index.html并在浏览器自动打开
+
+    proxy: {
+      "/api": {
+        target: "http://localhost:9092"
+      }
+    }
+  },
   module: {
     rules: [
       //loader模块处理，webpack不能识别的模块

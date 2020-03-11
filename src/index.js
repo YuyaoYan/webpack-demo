@@ -17,3 +17,9 @@ root.append(img);
 
 document.write("hello  webpack@@，今天的心情美美哒");
 console.log("hello");
+
+//8081的服务访问9092的服务，存在跨域问题
+//通过proxy代理解决
+import axios from 'axios';
+axios.get('/api/info').then(res=>{
+console.log(res) })
