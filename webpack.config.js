@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const webpack = require('webpack')
 module.exports = {
   entry: {
     index: "./src/index.js",
@@ -10,7 +11,8 @@ module.exports = {
   output: {
     //输出文件的名称
     path: path.resolve(__dirname, "./dist"), //path.resolve做路径拼接，必须是绝对路径
-    filename: "[name]_[chunkhash:8].js" //name是占位符，name是打包模块名称
+    filename: "[name].js" //name是占位符，name是打包模块名称
+    // filename: "[name]_[chunkhash:8].js" //name是占位符，name是打包模块名称
     // filename: "[name].js" //name是占位符，name是打包模块名称
     //chunkhash:8 可以用来做版本管理，每次打包之后相同文件都有保留不同的文件名
     //hash
@@ -26,7 +28,8 @@ module.exports = {
       "/api": {
         target: "http://localhost:9092"
       }
-    }
+    },
+    hotOnly: true
   },
   module: {
     rules: [
@@ -69,7 +72,7 @@ module.exports = {
       {
         test: /\.less$/,
         //执行顺序是从右向左，先执行css-loader后执行style-loader
-        use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader", "postcss-loader"]
+        use: ["style-loader", "css-loader", "less-loader", "postcss-loader"]
       },
       {
         test: /\.(woff2|woff)$/,
@@ -106,8 +109,9 @@ module.exports = {
       filename: "login.html"
     }),
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: "[name]_[contenthash:8].css"
-    })
+    // new MiniCssExtractPlugin({
+    //   filename: "[name]_[contenthash:8].css"
+    // }),
+    new webpack.HotModuleReplacementPlugin()
   ] //插件配置
 };
