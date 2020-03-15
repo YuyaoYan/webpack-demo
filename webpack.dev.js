@@ -51,6 +51,31 @@ const devConfig = {
         use: {
           loader: "file-loader"
         }
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/, //不需要检测
+        use: {
+          loader: "babel-loader",
+          // options: {
+          //   presets: [
+          //     [
+          //       "@babel/preset-env",
+          //       {
+          //         targets: {
+          //           edge: "17",
+          //           firefox: "60",
+          //           chrome: "67",
+          //           safari: "11.1",
+          //           andriod: "4.0",
+          //           ios: "10.0"
+          //         },
+          //         useBuiltIns: "usage" //按需注⼊入
+          //       }
+          //     ]
+          //   ]
+          // }
+        }
       }
     ]
   },

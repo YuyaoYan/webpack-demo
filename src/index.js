@@ -4,7 +4,7 @@
 
 // import logo from "./pic.png";
 // import "./index.css";
-import "./index.less";
+// import "./index.less";
 // console.log("logo", logo);
 // var img = new Image();
 // img.src = logo;
@@ -24,14 +24,56 @@ import "./index.less";
 //   console.log(res);
 // });
 
-import counter from "./counter";
-import number from "./number";
-counter();
-number();
+/**
+ * 20200314
+ */
+// import counter from "./counter";
+// import number from "./number";
+// counter();
+// number();
 
-if (module.hot) {
-  module.hot.accept("./number", function() {
-    document.body.removeChild(document.getElementById("number"));
-    number();
-  });
+// if (module.hot) {
+//   module.hot.accept("./number", function() {
+//     document.body.removeChild(document.getElementById("number"));
+//     number();
+//   });
+// }
+
+/**
+ * 20200314
+ * @description babel
+ */
+
+// // import "@babel/polyfill"; //这里包含了es6,es7,es8...
+// // 把使用到的es特性打包进来，没使用到的不用
+
+// // es6: Promise, map, const, 箭头函数
+// const arr = [new Promise(() => {}), new Promise(() => {})];
+// arr.map((item) => {
+//   console.log(item);
+// });
+
+/**
+ * @description 配置React打包环境
+ */
+// import React, { Component } from "react";
+// import ReactDom from "react-dom";
+// import "@babel/polyfill";
+// class App extends Component {
+//   render() {
+//     return <div>hello World</div>;
+//   }
+// }
+
+// ReactDom.render(<APP />, document.getElementById("app"));
+
+
+import "@babel/polyfill";
+import React, { Component } from "react";
+import ReactDom from "react-dom";
+class App extends Component {
+  render() {
+    return <div>hello world</div>;
+  }
 }
+ReactDom.render(<App />, document.getElementById("app"));
